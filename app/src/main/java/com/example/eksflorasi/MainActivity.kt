@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
@@ -34,7 +35,12 @@ fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
-@Preview(showBackground = true)
+@Preview(
+    name = "Full Screen",
+    group = "Device Preview",
+    device = Devices.PIXEL_3A,
+    showSystemUi = true,
+    showBackground = true)
 @Composable
 fun DefaultPreview() {
     EksFlorasiTheme {
