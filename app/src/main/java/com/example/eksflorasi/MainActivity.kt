@@ -9,7 +9,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.eksflorasi.ui.authentication.LandingScreen
+import com.example.eksflorasi.ui.authentication.LoginScreen
+import com.example.eksflorasi.ui.authentication.SplashScreen
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,22 +26,45 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    LoginScreen()
                 }
             }
         }
     }
 }
 
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    device = Devices.PIXEL_3A
+)
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun SplashScreenPreview() {
+    EksFlorasiTheme {
+        SplashScreen()
+    }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    device = Devices.PIXEL_3A
+)
 @Composable
-fun DefaultPreview() {
+fun LandingScreenPreview() {
     EksFlorasiTheme {
-        Greeting("Android")
+        LandingScreen()
+    }
+}
+
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    device = Devices.PIXEL_3A
+)
+@Composable
+fun LoginScreenPreview() {
+    EksFlorasiTheme {
+        LoginScreen()
     }
 }
