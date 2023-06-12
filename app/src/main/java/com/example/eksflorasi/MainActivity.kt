@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.eksflorasi.ui.authentication.LandingScreen
 import com.example.eksflorasi.ui.authentication.LoginScreen
+import com.example.eksflorasi.ui.authentication.RegisterScreen
 import com.example.eksflorasi.ui.authentication.SplashScreen
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginScreen()
+                    RegisterScreen()
                 }
             }
         }
@@ -66,5 +67,17 @@ fun LandingScreenPreview() {
 fun LoginScreenPreview() {
     EksFlorasiTheme {
         LoginScreen()
+    }
+}
+
+@Preview(
+    showBackground = true,
+    showSystemUi = true,
+    device = Devices.PIXEL_3A
+)
+@Composable
+fun RegisterScreenPreview() {
+    EksFlorasiTheme {
+        RegisterScreen()
     }
 }

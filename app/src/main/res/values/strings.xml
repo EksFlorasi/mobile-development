@@ -7,4 +7,10 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="login_headline">Welcome Back</string>
+    <string name="register_quote">Don\'t have an account?&#32;</string>
+    <string name="register">Register</string>
+    <string name="register_headline">Hello There</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>
