@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
@@ -15,6 +14,8 @@ import com.example.eksflorasi.ui.authentication.LandingScreen
 import com.example.eksflorasi.ui.authentication.LoginScreen
 import com.example.eksflorasi.ui.authentication.RegisterScreen
 import com.example.eksflorasi.ui.authentication.SplashScreen
+import com.example.eksflorasi.ui.home.DashboardScreen
+import com.example.eksflorasi.ui.home.TopNavigation
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +28,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    RegisterScreen()
+                    DashboardScreen()
                 }
             }
         }

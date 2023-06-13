@@ -31,6 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.eksflorasi.R
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
+import com.example.eksflorasi.ui.utils.*
 
 @Composable
 fun LoginScreen() {
@@ -223,33 +224,6 @@ fun LoginScreen() {
             }
         }
     }
-}
-
-
-private fun validateEmail(email: String, emailErrorState: MutableState<String>) {
-    val emailFormatRegex = Regex("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
-
-    if (!email.matches(emailFormatRegex)) {
-        emailErrorState.value = "Invalid email format"
-    } else {
-        emailErrorState.value = ""
-    }
-}
-
-private fun validatePassword(password: String, passwordErrorState: MutableState<String>) {
-    if (password.length < 8) {
-        passwordErrorState.value = "Password must be at least 8 characters long"
-    } else {
-        passwordErrorState.value = ""
-    }
-}
-
-private fun updateLoginEnabled(
-    emailError: String,
-    passwordError: String,
-    isLoginEnabled: MutableState<Boolean>
-) {
-    isLoginEnabled.value = emailError.isEmpty() && passwordError.isEmpty()
 }
 
 @Preview(

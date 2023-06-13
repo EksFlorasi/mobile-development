@@ -72,3 +72,7 @@ val md_theme_dark_scrim = Color(0xFF000000)
 
 
 val seed = Color(0xFF206A5D)
+
+val center_radial_gradient = Color(0xFF91FB7F)
+val middle_radial_gradient = Color(0xFF59D797)
+val outer_radial_gradient = Color(0xFF33BFA8)
