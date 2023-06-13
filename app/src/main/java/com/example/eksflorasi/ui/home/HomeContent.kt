@@ -26,8 +26,7 @@ fun HomeContent(modifier: Modifier) {
         Column(
             modifier
                 .fillMaxSize()
-                .padding(horizontal = AppBarMargin)
-                .padding(top = AppBarHeight),
+                .padding(horizontal = AppBarMargin, vertical = AppBarHeight)
         ) {
             WelcomingMessage(name = "Frans")
             HomeSection(title = stringResource(R.string.daily_mission)) {
@@ -35,6 +34,9 @@ fun HomeContent(modifier: Modifier) {
             }
             HomeSection(title = "Stats") {
                 Stats(modifier = modifier)
+            }
+            HomeSection(title = "Flor's Tip of The Day") {
+                DailyTips(modifier = modifier)
             }
         }
     }
