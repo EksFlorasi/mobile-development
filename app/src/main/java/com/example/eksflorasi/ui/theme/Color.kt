@@ -76,3 +76,6 @@ val seed = Color(0xFF206A5D)
 val center_radial_gradient = Color(0xFF91FB7F)
 val middle_radial_gradient = Color(0xFF59D797)
 val outer_radial_gradient = Color(0xFF33BFA8)
+
+val fauna_outline = Color(0xFFFF8E3B)
+val flora_outline = Color(0xFF33BFA8)

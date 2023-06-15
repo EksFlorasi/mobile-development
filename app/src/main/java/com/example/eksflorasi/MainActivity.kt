@@ -14,6 +14,8 @@ import com.example.eksflorasi.ui.authentication.LandingScreen
 import com.example.eksflorasi.ui.authentication.LoginScreen
 import com.example.eksflorasi.ui.authentication.RegisterScreen
 import com.example.eksflorasi.ui.authentication.SplashScreen
+import com.example.eksflorasi.ui.collection.CollectionDetailScreen
+import com.example.eksflorasi.ui.collection.CollectionScreen
 import com.example.eksflorasi.ui.home.DashboardScreen
 import com.example.eksflorasi.ui.home.TopNavigation
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
@@ -28,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DashboardScreen()
+                    CollectionDetailScreen()
                 }
             }
         }
