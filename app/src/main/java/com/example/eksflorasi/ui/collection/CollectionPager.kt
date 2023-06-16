@@ -48,7 +48,7 @@ fun ContentPager(modifier: Modifier) {
                         Row(
                             horizontalArrangement = Arrangement.Center,
                             verticalAlignment = Alignment.CenterVertically
-                        ){
+                        ) {
                             if (index == 0) {
                                 Icon(
                                     imageVector = Icons.Filled.Pets,
@@ -90,8 +90,10 @@ fun ContentPager(modifier: Modifier) {
                 modifier = Modifier.fillMaxSize(),
                 pageCount = items.size
             ) { page ->
-                val currentItem = items[page]
-                CollectionList(modifier = modifier, collections = dummyCollectionItems)
+                if (page == 0)
+                    CollectionList(modifier = modifier, collections = dummyCollectionItems)
+                else
+                    CollectionList(modifier = modifier, collections = dummyFloraItems)
             }
         }
 

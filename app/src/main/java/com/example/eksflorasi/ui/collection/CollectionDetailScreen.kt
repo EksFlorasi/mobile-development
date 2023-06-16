@@ -18,9 +18,9 @@ fun CollectionDetailScreen() {
         content = {
             CollectionDetailContent(
                 modifier = Modifier,
-                name = "Cat",
-                latin = "Felis Navidad",
-                description = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+                name = "Bat",
+                latin = "Chiroptera",
+                description = "Bats are mammals of the order Chiroptera. With their forelimbs adapted as wings, they are the only mammals capable of true and sustained flight. Bats are more agile in flight than most birds, flying with their very long spread-out digits covered with a thin membrane or patagium. The smallest bat, and arguably the smallest extant mammal, is Kitti\\'s hog-nosed bat, which is 29–34 millimetres in length, 150 mm across the wings and 2–2.6 g in mass. The largest bats are the flying foxes, with the giant golden-crowned flying fox (Acerodon jubatus) reaching a weight of 1.6 kg and having a wingspan of 1.7 m.",
                 imageRes = R.drawable.collection_example,
                 type = "fauna"
             )

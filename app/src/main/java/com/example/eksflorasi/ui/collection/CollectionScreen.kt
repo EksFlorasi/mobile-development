@@ -15,20 +15,7 @@ import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
 @Composable
 fun CollectionScreen() {
-    Scaffold(
-        topBar = {
-            TopNavigation(
-                title = stringResource(R.string.collection_headline),
-                modifier = Modifier
-            )
-        },
-        content = {
-            CollectionContent(modifier = Modifier)
-        },
-        bottomBar = {
-            BottomNavigation(modifier = Modifier)
-        }
-    )
+    CollectionContent(modifier = Modifier)
 }
 
 @Preview(

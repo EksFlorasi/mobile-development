@@ -5,5 +5,6 @@ data class UserRank(
     val points: String,
     val avatarUrl: String,
     val resourceId: Int,
-    var rank: Int? = null
+    var rank: Int? = null,
+    var highlight: Boolean = false
 )

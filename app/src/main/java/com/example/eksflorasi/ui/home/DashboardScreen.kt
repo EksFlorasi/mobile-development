@@ -12,20 +12,7 @@ import com.example.eksflorasi.ui.navigation.*
 
 @Composable
 fun DashboardScreen() {
-    Scaffold(
-        topBar = {
-            TopNavigation(
-                title = stringResource(id = R.string.dashboard_title),
-                modifier = Modifier
-            )
-        },
-        content = {
-            HomeContent(Modifier)
-        },
-        bottomBar = {
-            BottomNavigation(modifier = Modifier)
-        }
-    )
+    HomeContent(Modifier)
 }
 
 @Preview(

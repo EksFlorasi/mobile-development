@@ -15,20 +15,7 @@ import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
 @Composable
 fun LeaderboardScreen() {
-    Scaffold(
-        topBar = {
-            TopNavigation(
-                title = stringResource(R.string.leaderboard_headline),
-                modifier = Modifier
-            )
-        },
-        content = {
-            LeaderboardContent()
-        },
-        bottomBar = {
-            BottomNavigation(modifier = Modifier)
-        }
-    )
+    LeaderboardContent()
 }
 
 @Preview(

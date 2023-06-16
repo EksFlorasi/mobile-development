@@ -3,13 +3,11 @@ package com.example.eksflorasi.ui.leaderboard
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,7 +41,8 @@ val dummyLeaderboardList = listOf(
         name = "Bob",
         points = "70",
         avatarUrl = "https://example.com/avatar3.png",
-        resourceId = 3
+        resourceId = 3,
+        highlight = true
     ),
     UserRank(
         name = "Emily",
@@ -58,26 +57,26 @@ val dummyLeaderboardList = listOf(
         resourceId = 5
     ),
     UserRank(
-        name = "David",
-        points = "50",
+        name = "Hendra",
+        points = "40",
         avatarUrl = "https://example.com/avatar5.png",
         resourceId = 5
     ),
     UserRank(
-        name = "David",
-        points = "50",
+        name = "Daniel",
+        points = "30",
         avatarUrl = "https://example.com/avatar5.png",
         resourceId = 5
     ),
     UserRank(
-        name = "David",
-        points = "50",
+        name = "James",
+        points = "20",
         avatarUrl = "https://example.com/avatar5.png",
         resourceId = 5
     ),
     UserRank(
-        name = "David",
-        points = "50",
+        name = "Jason",
+        points = "10",
         avatarUrl = "https://example.com/avatar5.png",
         resourceId = 5
     )
@@ -98,54 +97,62 @@ fun ColumnLeaderboard(modifier: Modifier, users: List<UserRank>) {
 
 @Composable
 fun RankRow(modifier: Modifier, user: UserRank) {
-    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-        Text(
-            modifier = Modifier.weight(1f),
-            text = user.rank.toString(),
-            textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.primary,
-            style = MaterialTheme.typography.titleLarge,
-            fontWeight = FontWeight.SemiBold
-        )
-        Row(modifier = Modifier.weight(2f), verticalAlignment = Alignment.CenterVertically) {
-            Image(
-                modifier = Modifier
-                    .size(32.dp)
-                    .clip(CircleShape)
-                    .background(
-                        color = Color.White,
-                        shape = CircleShape
-                    )
-                    .border(
-                        width = 2.dp,
-                        color = MaterialTheme.colorScheme.primary,
-                        shape = CircleShape
-                    ),
-                painter = painterResource(id = R.drawable.avatar_example),
-                contentDescription = "avatar"
-            )
+    val backgroundColor = if (user.highlight) MaterialTheme.colorScheme.secondaryContainer else Color.White
+    Box(modifier = Modifier
+        .clip(RoundedCornerShape(16.dp))
+        .background(
+        color = backgroundColor,
+        shape = RoundedCornerShape(16.dp)
+    )) {
+        Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
             Text(
-                modifier = Modifier
-                    .weight(1f)
-                    .padding(horizontal = 8.dp),
-                text = user.name,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                style = MaterialTheme.typography.bodyLarge
-            )
-        }
-
-        Row(modifier = Modifier.weight(1f), horizontalArrangement = Arrangement.Center) {
-            Text(
-                text = user.points,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                style = MaterialTheme.typography.bodyLarge
-            )
-            Text(
-                text = " pts",
+                modifier = Modifier.weight(1f),
+                text = user.rank.toString(),
+                textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.primary,
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.SemiBold
             )
+            Row(modifier = Modifier.weight(2f), verticalAlignment = Alignment.CenterVertically) {
+                Image(
+                    modifier = Modifier
+                        .size(32.dp)
+                        .clip(CircleShape)
+                        .background(
+                            color = Color.White,
+                            shape = CircleShape
+                        )
+                        .border(
+                            width = 2.dp,
+                            color = MaterialTheme.colorScheme.primary,
+                            shape = CircleShape
+                        ),
+                    painter = painterResource(id = R.drawable.avatar_example),
+                    contentDescription = "avatar"
+                )
+                Text(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(horizontal = 8.dp),
+                    text = user.name,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+
+            Row(modifier = Modifier.weight(1f), horizontalArrangement = Arrangement.Center) {
+                Text(
+                    text = user.points,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+                Text(
+                    text = " pts",
+                    color = MaterialTheme.colorScheme.primary,
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
         }
     }
 }

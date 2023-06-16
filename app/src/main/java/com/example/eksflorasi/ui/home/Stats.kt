@@ -32,12 +32,12 @@ fun Stats(modifier: Modifier) {
                 modifier = modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                SmallStatBox(description = "Your points", modifier = Modifier, unit = "pts")
-                SmallStatBox(description = "Your points", modifier = Modifier, unit = "days")
+                SmallStatBox(description = "Your points", quantity = "1000", modifier = Modifier, unit = " pts")
+                SmallStatBox(description = "Streak", quantity = "3", modifier = Modifier, unit = " days")
             }
             Spacer(modifier = Modifier.height(16.dp))
             Row() {
-                LargeStatBox(description = "Your points", modifier = Modifier, unit = "days")
+                LargeStatBox(description = "Your Rank", quantity = "7", modifier = Modifier, unit = " th")
             }
         }
     }
@@ -47,6 +47,7 @@ fun Stats(modifier: Modifier) {
 @Composable
 fun SmallStatBox(
     description: String,
+    quantity: String,
     unit: String,
     modifier: Modifier,
 ) {
@@ -97,7 +98,7 @@ fun SmallStatBox(
                         .padding(horizontal = 40.dp)
                 ) {
                     Text(
-                        text = "1000 ",
+                        text = quantity,
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
@@ -116,6 +117,7 @@ fun SmallStatBox(
 @Composable
 fun LargeStatBox(
     description: String,
+    quantity: String,
     unit: String,
     modifier: Modifier,
 ) {
@@ -144,11 +146,14 @@ fun LargeStatBox(
                 shape = RoundedCornerShape(16.dp)
             )
             .fillMaxWidth()
+            .height(100.dp)
             .padding(4.dp),
         contentAlignment = Alignment.Center
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             Text(
                 modifier = modifier.padding(top = 8.dp),
@@ -169,10 +174,10 @@ fun LargeStatBox(
                 Row(
                     modifier = modifier
                         .padding(vertical = 4.dp)
-                        .padding(horizontal = 40.dp)
+                        .padding(horizontal = 20.dp)
                 ) {
                     Text(
-                        text = "1000 ",
+                        text = quantity,
                         color = MaterialTheme.colorScheme.primary,
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium

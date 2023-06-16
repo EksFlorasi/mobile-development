@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.*
-import androidx.compose.material.icons.rounded.Camera
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -12,43 +11,57 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.eksflorasi.ui.theme.EksFlorasiTheme
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.compose.runtime.getValue
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun BottomNavigation(modifier: Modifier) {
+fun BottomNavigation(
+    navController: NavHostController,
+    modifier: Modifier
+) {
     val selectedNavItem = remember { mutableStateOf("Home") }
     Box() {
         NavigationBar(modifier = modifier) {
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route
+
             val navigationItems = listOf(
                 BottomNavItem(
                     title = "Home",
                     iconFocused = Icons.Filled.Home,
-                    iconUnfocused = Icons.Outlined.Home
+                    iconUnfocused = Icons.Outlined.Home,
+                    screen = Screen.Dashboard
                 ),
                 BottomNavItem(
                     title = "Collection",
                     iconFocused = Icons.Filled.Forest,
-                    iconUnfocused = Icons.Outlined.Forest
+                    iconUnfocused = Icons.Outlined.Forest,
+                    screen = Screen.Collection
                 ),
                 BottomNavItem(
                     title = "Camera",
                     iconFocused = Icons.Filled.CameraAlt,
-                    iconUnfocused = Icons.Outlined.CameraAlt
+                    iconUnfocused = Icons.Outlined.CameraAlt,
+                    screen = Screen.Camera
                 ),
                 BottomNavItem(
                     title = "Rank",
                     iconFocused = Icons.Filled.Leaderboard,
-                    iconUnfocused = Icons.Outlined.Leaderboard
+                    iconUnfocused = Icons.Outlined.Leaderboard,
+                    screen = Screen.Leaderboard
                 ),
                 BottomNavItem(
                     title = "Profile",
                     iconFocused = Icons.Filled.AccountCircle,
-                    iconUnfocused = Icons.Outlined.AccountCircle
+                    iconUnfocused = Icons.Outlined.AccountCircle,
+                    screen = Screen.Profile
                 )
             )
 
-            navigationItems.forEach { navItem ->
+            navigationItems.map { navItem ->
                 NavigationBarItem(
                     icon = {
                         Icon(
@@ -69,20 +82,19 @@ fun BottomNavigation(modifier: Modifier) {
                             )
                         }
                     },
-                    selected = navItem.title == selectedNavItem.value,
-                    onClick = { selectedNavItem.value = navItem.title },
+                    selected = currentRoute == navItem.screen.route,
+                    onClick = {
+                        selectedNavItem.value = navItem.title
+                        navController.navigate(navItem.screen.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            restoreState = true
+                            launchSingleTop = true
+                        }
+                    },
                 )
             }
         }
-    }
-}
-
-@Preview(
-    showBackground = true,
-)
-@Composable
-fun BottomNavigationPreview() {
-    EksFlorasiTheme {
-        BottomNavigation(Modifier)
     }
 }

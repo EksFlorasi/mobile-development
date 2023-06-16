@@ -15,20 +15,7 @@ import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
 @Composable
 fun ProfileScreen() {
-    Scaffold(
-        topBar = {
-            TopNavigation(
-                title = stringResource(R.string.profile_headline),
-                modifier = Modifier
-            )
-        },
-        content = {
-            ProfileContent()
-        },
-        bottomBar = {
-            BottomNavigation(modifier = Modifier)
-        }
-    )
+    ProfileContent()
 }
 
 @Preview(

@@ -14,27 +14,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberImagePainter
 import com.example.eksflorasi.R
-import com.example.eksflorasi.ui.theme.EksFlorasiTheme
+import com.example.eksflorasi.model.Collection
 import com.example.eksflorasi.ui.theme.fauna_outline
 import com.example.eksflorasi.ui.theme.flora_outline
 
 @Composable
 fun CollectionItem(
     modifier: Modifier,
-    name: String,
-    type: String
+    collection: Collection
 ) {
     val backgroundColor =
-        if (type == "flora") MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.tertiaryContainer
+        if (collection.type == "flora") MaterialTheme.colorScheme.secondaryContainer else MaterialTheme.colorScheme.tertiaryContainer
     val textColor =
-        if (type == "flora") MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onTertiaryContainer
+        if (collection.type == "flora") MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.onTertiaryContainer
 
     Box(
         modifier = Modifier
@@ -48,25 +47,26 @@ fun CollectionItem(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            CollectionPhoto(type = type)
+            CollectionPhoto(collection)
             Text(
                 modifier = modifier.paddingFromBaseline(top = 20.dp, bottom = 4.dp),
-                text = name,
+                text = collection.name,
                 textAlign = TextAlign.Center,
                 color = textColor,
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Medium,
-                letterSpacing = 0.1.sp
+                letterSpacing = 0.1.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
             )
         }
     }
 }
 
 @Composable
-fun CollectionPhoto(type: String) {
+fun CollectionPhoto(collection: Collection) {
     val outlineSize = 4.dp
     val imageSize = 72.dp
-    val imageResId = R.drawable.flor_hi
 
     Box(
         modifier = Modifier
@@ -78,7 +78,7 @@ fun CollectionPhoto(type: String) {
             )
             .border(
                 width = outlineSize,
-                color = if (type == "flora")
+                color = if (collection.type == "flora")
                     flora_outline
                 else fauna_outline,
                 shape = CircleShape
@@ -86,55 +86,10 @@ fun CollectionPhoto(type: String) {
         contentAlignment = Alignment.Center
     ) {
         Image(
-            painter = painterResource(id = imageResId),
+            painter = rememberImagePainter(data = collection.photoUrl),
             contentDescription = null,
             modifier = Modifier.size(imageSize),
             contentScale = ContentScale.Crop
         )
     }
 }
-
-@Preview(
-    showBackground = true
-)
-@Composable
-fun CollectionItemPreview() {
-    EksFlorasiTheme {
-        CollectionItem(modifier = Modifier, name = "Flor", type = "fauna")
-    }
-}
-
-//val outlineColor = Color.Red
-//val outlineSize = 4.dp
-//val imageSize = 100.dp
-//
-//Box(
-//modifier = Modifier
-//.size(200.dp)
-//.background(Color.LightGray)
-//.padding(16.dp),
-//contentAlignment = Alignment.Center
-//) {
-//    Box(
-//        modifier = Modifier
-//            .size(imageSize)
-//            .clip(CircleShape)
-//            .background(
-//                color = outlineColor,
-//                shape = CircleShape
-//            )
-//            .border(
-//                width = outlineSize,
-//                color = outlineColor,
-//                shape = CircleShape
-//            ),
-//        contentAlignment = Alignment.Center
-//    ) {
-//        Image(
-//            painter = rememberImagePainter(imageUrl),
-//            contentDescription = null,
-//            modifier = Modifier.size(imageSize),
-//            contentScale = ContentScale.Crop
-//        )
-//    }
-//}

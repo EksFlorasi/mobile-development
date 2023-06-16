@@ -30,9 +30,9 @@ import com.example.eksflorasi.model.UserProfile
 import com.example.eksflorasi.ui.theme.*
 
 val dummyUserProfile = UserProfile(
-    name = "John Doe",
-    email = "johndoe@example.com",
-    location = "New York"
+    name = "Bob",
+    email = "bob@gmail.com",
+    location = "Jawa Timur"
 )
 
 
@@ -125,7 +125,7 @@ fun ProfilePicture() {
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(R.drawable.flor_hi),
+                painter = painterResource(R.drawable.avatar_example),
                 contentDescription = null,
                 modifier = Modifier.size(imageSize),
                 contentScale = ContentScale.Crop

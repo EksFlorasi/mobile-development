@@ -21,6 +21,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import com.example.eksflorasi.R
 import com.example.eksflorasi.ui.theme.fauna_outline
 import com.example.eksflorasi.ui.theme.flora_outline
@@ -75,8 +76,9 @@ fun ImageBox(modifier: Modifier, imageRes: Int, type: String) {
                 )
                 .align(Alignment.TopCenter)
         ) {
+
             Image(
-                painter = painterResource(id = imageRes),
+                painter = rememberImagePainter(data = "https://storage.googleapis.com/flora-fauna-images/fauna/bat-detail.png"),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 modifier = modifier.fillMaxSize()
