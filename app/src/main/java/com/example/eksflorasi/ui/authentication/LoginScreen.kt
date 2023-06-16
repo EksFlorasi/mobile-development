@@ -180,7 +180,7 @@ fun LoginScreen() {
             }
 
             Button(
-                onClick = { /* Log In button click action */ },
+                onClick = {  },
                 modifier = Modifier
                     .width(256.dp)
                     .height(56.dp)
@@ -188,7 +188,11 @@ fun LoginScreen() {
                 enabled = isLoginEnabled.value,
                 shape = RoundedCornerShape(16.dp)
             ) {
-                Text(text = stringResource(id = R.string.login))
+                Text(
+                    text = stringResource(id = R.string.login),
+                    color = MaterialTheme.colorScheme.onPrimary,
+                    style = MaterialTheme.typography.headlineSmall
+                )
             }
 
             val signUpText = buildAnnotatedString {

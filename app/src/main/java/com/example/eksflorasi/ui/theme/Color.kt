@@ -79,3 +79,9 @@ val outer_radial_gradient = Color(0xFF33BFA8)
 
 val fauna_outline = Color(0xFFFF8E3B)
 val flora_outline = Color(0xFF33BFA8)
+
+val outline_rank_one = Color(0xFFF5E649)
+val outline_rank_two = Color(0xFF6F7976)
+val outline_rank_three = Color(0xFF984800)
+
+val user_information = Color(0xFF00382F)

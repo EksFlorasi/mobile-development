@@ -17,4 +17,7 @@
     <string name="dashboard_title">Home</string>
     <string name="daily_mission">Daily Mission</string>
     <string name="collection_headline">Collection</string>
+    <string name="leaderboard_headline">Leaderboard</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="profile_headline">Profile</string>
 </resources>

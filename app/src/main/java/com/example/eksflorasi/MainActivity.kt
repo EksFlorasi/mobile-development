@@ -18,6 +18,8 @@ import com.example.eksflorasi.ui.collection.CollectionDetailScreen
 import com.example.eksflorasi.ui.collection.CollectionScreen
 import com.example.eksflorasi.ui.home.DashboardScreen
 import com.example.eksflorasi.ui.home.TopNavigation
+import com.example.eksflorasi.ui.leaderboard.LeaderboardScreen
+import com.example.eksflorasi.ui.profile.ProfileScreen
 import com.example.eksflorasi.ui.theme.EksFlorasiTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +32,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CollectionDetailScreen()
+                    ProfileScreen()
                 }
             }
         }
